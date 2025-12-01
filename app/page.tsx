@@ -1,103 +1,119 @@
-import Image from "next/image";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-gradient-to-b from-background to-muted">
+      {/* Navigation */}
+      <nav className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-2xl font-bold text-primary">
+              Philo-Finder
+            </Link>
+            <div className="flex items-center gap-6">
+              <Link href="/sobre-nosotros" className="text-foreground hover:text-primary transition-colors">
+                Acerca de Nosotros
+              </Link>
+              <Link href="/linea-temporal" className="text-foreground hover:text-primary transition-colors">
+                Línea del Tiempo
+              </Link>
+              <Link href="/" className="text-foreground hover:text-primary transition-colors">
+                Inicio
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-40">
+        <div className="text-center space-y-6">
+          <h1 className="text-6xl md:text-7xl font-bold text-primary text-balance">Philo-Finder</h1>
+          <p className="text-2xl md:text-3xl text-muted-foreground text-balance">
+            Buscando tu filosofía
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+            <Link href="/linea-temporal">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                Ver Línea del Tiempo
+              </Button>
+            </Link>
+            <Link href="/sobre-nosotros">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10 bg-transparent"
+              >
+                Conoce Nuestro Proyecto
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="bg-card/50 py-20 md:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16 text-center">Lo que encontrarás</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Línea del Tiempo Interactiva",
+                description:
+                  "Visualiza la evolución del pensamiento filosófico a través de los siglos de forma interactiva e intuitiva.",
+              },
+              {
+                title: "Perfiles de Filósofos",
+                description:
+                  "Conoce la vida, el pensamiento principal y las contribuciones de los grandes maestros del pensamiento.",
+              },
+              {
+                title: "Obras Principales",
+                description:
+                  "Descubre las obras más influyentes y cómo han transformado nuestra comprensión del mundo.",
+              },
+            ].map((feature, idx) => (
+              <div
+                key={idx}
+                className="bg-background border border-border rounded-lg p-6 space-y-3 hover:border-accent transition-colors"
+              >
+                <h3 className="text-lg font-semibold text-primary">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary">Comienza tu viaje filosófico</h2>
+          <p className="text-lg text-muted-foreground">
+            Explora pensadores desde Sócrates, Platón y Aristóteles hasta los filósofos presocráticos en una experiencia
+            interactiva.
+          </p>
+          <Link href="/linea-temporal">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              Ir a la Línea del Tiempo
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-primary/10 border-t border-border mt-20 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+          <p className="text-muted-foreground">
+            Filosofía Occidental - Exploración educativa del pensamiento filosófico
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Recursos creados por estudiantes de la ESFM "Manuel Ascencio Villarroel"
+          </p>
+        </div>
       </footer>
-    </div>
-  );
+    </main>
+  )
 }
